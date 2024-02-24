@@ -1,0 +1,48 @@
+
+<app-admin-dashboard>
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        UserName
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Document identity
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        identity number
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Role
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of members" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       {{ m.name }} {{ m.familyName }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ m.identityDocument }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ m.identityNumber }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ m.email }}
+                    </td>
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" [(ngModel)]="m.role" class="form-select" (change)="updateRole(m)">
+                        <option value="NONE">NONE</option>
+                        <option value="ADHERENT">ADHERENT</option>
+                        <option value="JURY">JURY</option>
+                        <option value="MANAGER">MANAGER</option>
+                    </select>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</app-admin-dashboard>
